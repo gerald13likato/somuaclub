@@ -1,0 +1,67 @@
+<!-- 加藤作成セクション -->
+<!-- 広告バナー -->
+
+{% if section.settings.background %}
+{% assign background_color = section.settings.background %}
+{% else %}
+{% assign background_color = "#F3F3F3" %}
+{% endif %}
+
+<div class="page-width">
+  <div class="ad_banner" style="background-color: {{ background_color }};">
+    <ul class="ad_items">
+      {% for block in section.blocks %}
+	  {% assign image-link = block.settings.image_link %}
+      {% assign image = block.settings.image %}
+      <li class="ad_item">
+        <a href="{{ image-link }}">
+	    	<img src="{{ image | img_url: "master" }}" class="ad_pics">
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "広告バナー",
+	"max_blocks": 5,
+    "settings": [
+		{
+			"type": "color_background",
+			"id": "background",
+			"label": "背景色"
+		}
+	],
+	"blocks": [
+		{
+			"type": "text",
+			"name": "画像",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "画像を選んでください"
+				},
+				{
+					"type": "url",
+					"id": "image_link",
+					"label": "リンクを入力してください"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "広告バナー"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

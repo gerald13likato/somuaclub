@@ -1,0 +1,113 @@
+<!-- 加藤作成セクション -->
+{% assign pcRange = section.settings.pc_pic_nums %}
+{% assign rangeLimit = pcRange | plus: 2%}
+
+<div class="page-width">
+  <div class="top-slider-container">
+    <div class="content desktop">
+      <div class="slider-container">
+        {% for block in section.blocks limit: pcRange %}
+        {% assign pc_image = block.settings.pc_image %}
+        {% assign pc_link = block.settings.pc_link %}
+        <a class="slider-element" style="background-image: url({{ pc_image | img_url: "master"}})" href=" {{ pc_link }} "></a>
+        {% endfor %}
+      </div>
+      <div class="right-container">
+        {% for block in section.blocks limit: rangeLimit%}
+        {% assign pc_image = block.settings.pc_image%}
+        {% assign pc_link = block.settings.pc_link %}
+        {% assign index = forloop.rindex0 %}
+        {% if forloop.rindex0 == 1 %}
+        <a class="right-top" style="background-image: url( {{ pc_image | img_url: "master" }} )" href=" {{ pc_link }}"></a>
+        {% elsif forloop.last == true %}
+        <a class="right-bottom" style="background-image: url( {{ pc_image | img_url: "master" }} )" href=" {{ pc_link }}"></a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="content mobile">
+      {% assign spRange = section.settings.sp_pic_nums %}
+      <div class="slider-container">
+        {% for block in section.blocks limit: spRange%}
+        {% assign sp_image = block.settings.sp_image %}
+        {% assign sp_link = block.settings.sp_link %}
+        <a class="slider-element" style="background-image: url( {{ sp_image | img_url: "master"}});"href=" {{ sp_link }}"></a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "top slider",
+  "max_blocks": 7,
+  "settings": [
+  {
+    "type": "range",
+    "id": "pc_pic_nums",
+    "min": 2,
+    "max": 5,
+    "step": 1,
+    "label": "PC表示スライド画像の枚数",
+    "default": 3
+  },{
+    "type": "range",
+    "id": "sp_pic_nums",
+    "min": 2,
+    "max": 7,
+    "step": 1,
+    "label": "スマホ表示スライド画像の枚数",
+    "default": 3
+  }
+  ],
+  "blocks": [
+  {
+    "name": "Top Image",
+    "type": "text",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "pc_image",
+      "label": "PC用画像"
+    },
+    {
+      "type": "url",
+      "id": "pc_link",
+      "label": "PC用リンク"
+    },
+    {
+      "type": "image_picker",
+      "id": "sp_image",
+      "label": "スマホ用画像"
+    },
+    {
+      "type": "url",
+      "id": "sp_link",
+      "label": "スマホ用リンク"
+    }
+    ]
+  }
+  ],
+  "presets": [{
+    "name": "top-slider"
+  }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+$('.slider-container').slick({
+  arrows: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: false,
+  //フェード設定
+  autoplay: true,
+  autoplaySpeed: 3000,
+  focusOnSelect: true,
+})
+{% endjavascript %}
