@@ -15,14 +15,14 @@
       {% if block.settings.link != blank %}
         <a class="image-bar__link" href="{{ block.settings.link }}">
           <div class="image-bar__item box ratio-container lazyload"
-               data-bgset="{% include 'bgset', image: block.settings.image %}"
+               data-bgset="{% render 'bgset', image: block.settings.image %}"
                data-sizes="auto"
                data-parent-fit="cover"
                style="background-position: {{ block.settings.alignment }};"
                data-image-loading-animation>
       {% elsif block.settings.image != blank %}
         <div class="image-bar__item image-bar__item--{{ block.id }} box ratio-container lazyload"
-             data-bgset="{% include 'bgset', image: block.settings.image %}"
+             data-bgset="{% render 'bgset', image: block.settings.image %}"
              data-sizes="auto"
              data-parent-fit="cover"
              style="background-position: {{ block.settings.alignment }};"
@@ -49,14 +49,14 @@
     </div>
     <noscript>
       <div class="grid__item {{ column_size }}" {{ block.shopify_attributes }}>
-        <div class="image-bar__item image-bar__item--{{ block.id }}" style="background-image: url({{ block.settings.image | img_url: '2048x' }});"></div>
+        <div class="image-bar__item image-bar__item--{{ block.id }}" style="background-image: url({{ block.settings.image | image_url: width: 2048 }});"></div>
       </div>
     </noscript>
   {% endfor %}
 </div>
 
 {% if section.blocks.size == 0 %}
-  {% include 'no-blocks' %}
+  {% render 'no-blocks' %}
 {% endif %}
 
 

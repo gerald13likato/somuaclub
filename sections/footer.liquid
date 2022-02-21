@@ -6,7 +6,7 @@
 {%- assign show_selectors = false -%}
 
 
-{%- assign show_country_selector = section.settings.show_currency_selector  -%}
+{%- assign show_country_selector = section.settings.show_currency_selector -%}
 {%- if show_country_selector and localization.available_countries.size > 1 -%}
   {%- assign country_selector = true -%}
 {%- endif -%}
@@ -193,7 +193,7 @@
                     {% if form.errors contains 'email' %}
                       <span id="{{ formId }}-email-error" class="input-error-message">
                         <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                        {% include 'icon-error' %}
+                        {% render 'icon-error' %}
                         <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
                       </span>
                     {% endif %}
@@ -313,7 +313,7 @@
               {%- if settings[social_link] != blank -%}
                 <li class="social-icons__item">
                   <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
-                    {%- include icon_link -%}
+                    {%- render icon_link -%}
                     <span class="icon__fallback-text">{{ social }}</span>
                   </a>
                 </li>
@@ -323,7 +323,7 @@
             {%- if request.page_type == 'blog' or request.page_type == 'article' -%}
               <li>
                 <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
-                  {% include 'icon-rss' %}
+                  {% render 'icon-rss' %}
                   <span class="icon__fallback-text">RSS</span>
                 </a>
               </li>

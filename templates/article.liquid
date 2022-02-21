@@ -39,19 +39,19 @@
                 {% endcomment %}
                 {% if comment.status == 'pending' %}
                   <li id="{{ comment.id }}" class="comment">
-                    {% include 'comment', comment: comment %}
+                    {% render 'comment', comment: comment %}
                   </li>
                 {% endif %}
 
                 {% for comment in article.comments %}
                   <li id="{{ comment.id }}" class="comment">
-                    {% include 'comment', comment: comment %}
+                    {% render 'comment', comment: comment %}
                   </li>
                 {% endfor %}
               </ul>
 
               {%- if paginate.pages > 1 -%}
-                {% include 'pagination', paginate: paginate %}
+                {% render 'pagination', paginate: paginate %}
               {%- endif -%}
 
             </div>
@@ -79,7 +79,7 @@
               {%- assign post_message = 'blogs.comments.unapproved' -%}
             {%- endif -%}
 
-            {% include 'form-status', form: form, form_id: formId, success_message: post_message %}
+            {% render 'form-status', form: form, form_id: formId, success_message: post_message %}
 
             <div class="grid">
 
@@ -87,9 +87,9 @@
                 <label for="{{ formId }}-author">{{ 'blogs.comments.name' | t }}</label>
                 <input type="text" name="comment[author]" id="{{ formId }}-author" class="input-full{% if form.errors contains 'author' %} input--error{% endif %}" value="{{ form.author }}"{% if form.errors contains 'author' %} aria-invalid="true" aria-describedby="{{ formId}}-author-error"{% endif %}>
                 {% if form.errors contains 'author' %}
-                  <span id="{{ formId}}-author-error" class="input-error-message">
+                  <span id="{{ formId }}-author-error" class="input-error-message">
                     <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
+                    {% render 'icon-error' %}
                     <span>{{ 'blogs.comments.name' | t }} {{ form.errors.messages['author'] }}.</span>
                   </span>
                 {% endif %}
@@ -99,9 +99,9 @@
                 <label for="{{ formId }}-email">{{ 'blogs.comments.email' | t }}</label>
                 <input type="email" name="comment[email]" id="{{ formId }}-email" class="input-full{% if form.errors contains 'email' %} input--error{% endif %}" value="{{ form.email }}" autocorrect="off" autocapitalize="off" {% if form.errors contains 'email' %} aria-invalid="true" aria-describedby="{{ formId}}-email-error"{% endif %}>
                 {% if form.errors contains 'email' %}
-                  <span id="{{ formId}}-email-error" class="input-error-message">
+                  <span id="{{ formId }}-email-error" class="input-error-message">
                     <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
+                    {% render 'icon-error' %}
                     <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
                   </span>
                 {% endif %}
@@ -111,9 +111,9 @@
                 <label for="{{ formId }}-body">{{ 'blogs.comments.message' | t }}</label>
                 <textarea name="comment[body]" id="{{ formId }}-body" class="input-full{% if form.errors contains 'body' %} input--error{% endif %}"{% if form.errors contains 'body' %} aria-invalid="true" aria-describedby="{{ formId}}-body-error"{% endif %}>{{ form.body }}</textarea>
                 {% if form.errors contains 'body' %}
-                  <span id="{{ formId}}-body-error" class="input-error-message">
+                  <span id="{{ formId }}-body-error" class="input-error-message">
                     <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
+                    {% render 'icon-error' %}
                     <span>{{ 'blogs.comments.message' | t }} {{ form.errors.messages['body'] }}.</span>
                   </span>
                 {% endif %}
@@ -135,7 +135,7 @@
 
 <div class="text-center return-link-wrapper page-width">
   <a href="{{ blog.url }}" class="btn btn--secondary btn--has-icon-before">
-    {% include 'icon-arrow-left' %}
+    {% render 'icon-arrow-left' %}
     {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
   </a>
 </div>
@@ -156,7 +156,7 @@
   {% if article.image %}
     {% assign image_size = article.image.width | append: 'x' %}
     "image": [
-      {{ article | img_url: image_size | prepend: "https:" | json }}
+      {{ article | image_url: image_size | prepend: "https:" | json }}
     ],
   {% endif %}
   "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
@@ -172,7 +172,7 @@
       "logo": {
         "@type": "ImageObject",
         "height": {{ page_image.height | json }},
-        "url": {{ page_image | img_url: image_size | prepend: "https:" | json }},
+        "url": {{ page_image | image_url: image_size | prepend: "https:" | json }},
         "width": {{ page_image.width | json }}
       },
     {% endif %}

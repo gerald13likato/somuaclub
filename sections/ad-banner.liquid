@@ -1,6 +1,3 @@
-<!-- 加藤作成セクション -->
-<!-- 広告バナー -->
-
 {% if section.settings.background %}
 {% assign background_color = section.settings.background %}
 {% else %}
@@ -15,7 +12,7 @@
       {% assign image = block.settings.image %}
       <li class="ad_item">
         <a href="{{ image-link }}">
-	    	<img src="{{ image | img_url: "master" }}" class="ad_pics">
+	    	<img src="{{ image | image_url }}" class="ad_pics">
         </a>
       </li>
       {% endfor %}
@@ -24,40 +21,40 @@
 </div>
 
 {% schema %}
-  {
-    "name": "広告バナー",
-	"max_blocks": 5,
-    "settings": [
-		{
-			"type": "color_background",
-			"id": "background",
-			"label": "背景色"
-		}
-	],
-	"blocks": [
-		{
-			"type": "text",
-			"name": "画像",
-			"settings": [
-				{
-					"type": "image_picker",
-					"id": "image",
-					"label": "画像を選んでください"
-				},
-				{
-					"type": "url",
-					"id": "image_link",
-					"label": "リンクを入力してください"
-				}
-			]
-		}
-	],
-	"presets": [
-		{
-			"name": "広告バナー"
-		}
-	]
-  }
+{
+  "name": "広告バナー",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "背景色"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "画像",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像を選んでください"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "リンクを入力してください"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "広告バナー"
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}

@@ -50,8 +50,8 @@
                   data-alt="{{ block_image.alt | escape }}"
                   {% endunless %}
                   class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
-                  data-bg="{{ block_image | img_url: '300x300' }}"
-                  data-bgset="{% include 'bgset', image: block_image %}"
+                  data-bg="{{ block_image | image_url: width: 300, height: 300 }}"
+                  data-bgset="{% render 'bgset', image: block_image %}"
                   data-sizes="auto"
                   data-parent-fit="contain"
                   style="background-position: {{ block.settings.alignment }};"
@@ -61,7 +61,7 @@
             {% endif %}
 
             <noscript>
-              <div class="slideshow__image"{% if block_image %}{% unless block_image.alt == blank %} role="img" aria-label="{{ block_image.alt | escape }}"{% endunless %} style="background-image: url('{{ block_image | img_url: '2048x' }}'); background-position: {{ block.settings.alignment }};"{% endif %}>
+              <div class="slideshow__image"{% if block_image %}{% unless block_image.alt == blank %} role="img" aria-label="{{ block_image.alt | escape }}"{% endunless %} style="background-image: url('{{ block_image | image_url: width: 2048 }}'); background-position: {{ block.settings.alignment }};"{% endif %}>
                 {% if block_image == blank %}
                   <div class="placeholder-background">
                     {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -114,8 +114,8 @@
           {%- assign arrows_width = section.blocks.size | times: 18 | plus: 115 -%}
           <div class="slideshow__arrows"
                style="width: {{- arrows_width -}}px">
-            <button class="slideshow__arrow slideshow__arrow-previous" aria-label="{{ 'sections.slideshow.previous_slide' | t }}" data-slider-button>{% include 'icon-chevron-left' %}</button>
-            <button class="slideshow__arrow slideshow__arrow-next" aria-label="{{ 'sections.slideshow.next_slide' | t }}" data-slider-button data-slider-button-next>{% include 'icon-chevron-right' %}</button>
+            <button class="slideshow__arrow slideshow__arrow-previous" aria-label="{{ 'sections.slideshow.previous_slide' | t }}" data-slider-button>{% render 'icon-chevron-left' %}</button>
+            <button class="slideshow__arrow slideshow__arrow-next" aria-label="{{ 'sections.slideshow.next_slide' | t }}" data-slider-button data-slider-button-next>{% render 'icon-chevron-right' %}</button>
 
             <ul class="slick-dots" data-slider-indicators>
               {%- for block in section.blocks -%}
@@ -129,11 +129,11 @@
           {%- if section.settings.autorotate -%}
             <button type="button" class="slideshow__pause" data-id="{{ section.id }}" aria-live="polite" aria-pressed="false" data-slider-pause>
               <span class="slideshow__pause-stop">
-                {% include 'icon-pause' %}
+                {% render 'icon-pause' %}
                 <span class="icon__fallback-text">{{ 'sections.slideshow.pause_slideshow' | t }}</span>
               </span>
               <span class="slideshow__pause-rotate">
-                {% include 'icon-play' %}
+                {% render 'icon-play' %}
                 <span class="icon__fallback-text">{{ 'sections.slideshow.rotate_slideshow' | t }}</span>
               </span>
             </button>
@@ -144,8 +144,8 @@
     <div class="slideshow__text-wrap slideshow__text-wrap--mobile">
       {% if section.blocks.size > 1 %}
         <div class="slideshow__arrows slideshow__arrows--mobile">
-          <button class="slideshow__arrow slideshow__arrow-previous" aria-label="{{ 'sections.slideshow.previous_slide' | t }}" data-slider-button>{% include 'icon-chevron-left' %}</button>
-          <button class="slideshow__arrow slideshow__arrow-next" aria-label="{{ 'sections.slideshow.next_slide' | t }}" data-slider-button data-slider-button-next>{% include 'icon-chevron-right' %}</button>
+          <button class="slideshow__arrow slideshow__arrow-previous" aria-label="{{ 'sections.slideshow.previous_slide' | t }}" data-slider-button>{% render 'icon-chevron-left' %}</button>
+          <button class="slideshow__arrow slideshow__arrow-next" aria-label="{{ 'sections.slideshow.next_slide' | t }}" data-slider-button data-slider-button-next>{% render 'icon-chevron-right' %}</button>
 
           <ul class="slick-dots" data-slider-indicators>
             {%- for block in section.blocks -%}

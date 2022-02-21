@@ -40,7 +40,7 @@
         <strong>{{ formatted_initial_value }}</strong>
       </div>
 
-      {%- assign code_size = gift_card.code | format_code | size -%}
+      
       <div class="giftcard__code">
         <div class="giftcard__code__inner">
           <input type="text"
@@ -67,7 +67,7 @@
           rel="noopener"
           aria-describedby="a11y-new-window-message">
             {{ 'gift_cards.issued.shop_link' | t }}
-            {% include 'icon-arrow-right' %}
+            {% render 'icon-arrow-right' %}
         </a>
       </li>
       <li>

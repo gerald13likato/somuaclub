@@ -196,63 +196,21 @@
           "tags_enable": true
         }
       },
-      "1642405454acc79c5d": {
-        "type": "ad-banner",
-        "blocks": {
-          "865d5564-178e-4839-96ad-b63336eb86df": {
-            "type": "text",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/monday_flow.png",
-              "image_link": "shopify:\/\/collections\/monday-flow"
-            }
-          },
-          "93bdd32d-9082-4ab3-8f73-02e9b7f5f703": {
-            "type": "text",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/pivee.png",
-              "image_link": ""
-            }
-          },
-          "955d5f35-5db7-4e30-a236-03fb9cc9e3f1": {
-            "type": "text",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/clove_logo_white.png",
-              "image_link": ""
-            }
-          },
-          "fe9a54d3-546c-4557-9429-446cf73a1c22": {
-            "type": "text",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/kgcosme.png",
-              "image_link": ""
-            }
-          },
-          "b956e9ba-cc62-42ce-a82d-c7f505919750": {
-            "type": "text",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/syjp.png",
-              "image_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "865d5564-178e-4839-96ad-b63336eb86df",
-          "93bdd32d-9082-4ab3-8f73-02e9b7f5f703",
-          "955d5f35-5db7-4e30-a236-03fb9cc9e3f1",
-          "fe9a54d3-546c-4557-9429-446cf73a1c22",
-          "b956e9ba-cc62-42ce-a82d-c7f505919750"
-        ],
+      "16425791418d4186c1": {
+        "type": "collection-list-test",
         "settings": {
-          "background": "#BDC7BE"
+          "title": "new items",
+          "collection": "port",
+          "grid": 3,
+          "rows": 3,
+          "show_vendor": true,
+          "show_view_all": true
         }
       },
       "16425925847e3a4b87": {
-        "type": "instafeed",
+        "type": "sc-instafeed",
         "settings": {
-          "heading_font": "helvetica_n4",
-          "heading_size": 20,
-          "feed_width": 100,
-          "html_area": ""
+          "feed_width": 100
         }
       },
       "1644246585437ea8f8": {
@@ -284,12 +242,47 @@
         ],
         "settings": {
           "blog": "news",
-          "post_limit": 3
+          "post_limit": 6
+        }
+      },
+      "1644473420adadf686": {
+        "type": "test",
+        "blocks": {
+          "e8f3f53e-7deb-4465-94d7-4cfdc925e17e": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mondayflow.jpg",
+              "image_link": ""
+            }
+          },
+          "83134b60-4136-462f-8da4-cd29d13cc23e": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/mondayflow-wide002.jpg",
+              "image_link": ""
+            }
+          },
+          "64e9c4c8-f82a-4a49-af39-3f08a478468c": {
+            "type": "text",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/clove.jpg",
+              "image_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "e8f3f53e-7deb-4465-94d7-4cfdc925e17e",
+          "83134b60-4136-462f-8da4-cd29d13cc23e",
+          "64e9c4c8-f82a-4a49-af39-3f08a478468c"
+        ],
+        "settings": {
+          "title": ""
         }
       }
     },
     "content_for_index": [
-      "1642405454acc79c5d",
+      "1644473420adadf686",
+      "16425791418d4186c1",
       "1644246585437ea8f8",
       "16425925847e3a4b87"
     ]

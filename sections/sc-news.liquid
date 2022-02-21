@@ -3,57 +3,47 @@
     <h2 class="sc-section-title">SOMUA CLUB NEWS</h2>
   </header>
 
-  <!--
-    おすすめ記事
-  -->
+  <!-- おすすめ記事 -->
 
   <!-- おすすめ記事のIDのリストを初期化 -->
   {%- assign recommendedIds = "" %}
 
   {% if section.blocks.size > 1 %}
-    <ul class="grid grid--uniform">
-      {% for block in section.blocks %}
-        {%- assign article = articles[block.settings.recommended_articles] %}
-        {%- assign id = "sc-news-recommended-" | append: article.id %}
-        <!-- おすすめ記事のIDのリストに追加する -->
-        {%- assign recommendedIds = recommendedIds | append: article.id | append: "," %}
+  <ul class="sc-news-recommended grid grid--uniform">
+    {% for block in section.blocks %}
+    {%- assign article = articles[block.settings.recommended_articles] %}
+    {%- assign id = "sc-news-recommended-" | append: article.id %}
+    <!-- おすすめ記事のIDのリストに追加する -->
+    {%- assign recommendedIds = recommendedIds | append: article.id | append: "," %}
 
-        <li class="grid__item medium-up--one-third">
-          <article
-            aria-labelledby="{{ id }}"
-            class="sc-news-recommended__item__article"
-          >
-            <!-- link -->
-            <a href="{{ article.url }}" class="sc-news-recommended__item__link article__link full-width-link">
-              <span class="visually-hidden">{{ article.title }}</span>
-            </a>
+    <li class="sc-news-recommended__item grid__item medium-up--one-third">
+      <article aria-labelledby="{{ id }}" class="sc-news-recommended__item__article">
+        <!-- link -->
+        <a href="{{ article.url }}" class="sc-news-recommended__item__link article__link full-width-link">
+          <span class="visually-hidden">{{ article.title }}</span>
+        </a>
 
-            <!-- thumbnail -->
-            {%- assign thumbnail = 'thumbnail.png' | file_url %}
-            {% if article.image %}
-              {%- assign thumbnail = article.image | img_url: 'medium' %}
-            {% endif %}
-            <div
-              style="background-image: url({{ thumbnail }});"
-              class="sc-news__thumbnail"
-            ></div>
+        <!-- thumbnail -->
+        {%- assign thumbnail = 'thumbnail.png' | file_url %}
+        {% if article.image %}
+        {%- assign thumbnail = article.image | image_url %}
+        {% endif %}
+        <div style="background-image: url({{ thumbnail }});" class="sc-news__thumbnail"></div>
 
-            <!-- title -->
-            <h3 id="{{ id }}" class="sc-news-recommended__item__title">
-              {{ article.title }}
-            </h3>
-          </article>
-        </li>
-      {% endfor %}
-    </ul>
+        <!-- title -->
+        <h3 id="{{ id }}" class="sc-news-recommended__item__title">
+          {{ article.title }}
+        </h3>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
   {% endif %}
 
   <!-- おすすめ記事のIDのリストから compact で不要な値を削除 -->
   {%- assign recommendedIds = recommendedIds | split: ',' | compact %}
 
-  <!--
-    新着記事
-  -->
+  <!-- 新着記事 -->
 
   {%- assign blog = blogs[section.settings.blog] -%}
 
@@ -61,72 +51,70 @@
   {%- assign newCounter = 0 -%}
 
   {% unless blog.articles_count == 0 %}
-    <ul class="grid grid--uniform">
-      {%- assign newLimit = section.settings.post_limit | plus: 3 %}
+  <ul class="sc-news-new grid grid--uniform">
+    {%- assign newLimit = section.settings.post_limit | plus: 3 %}
 
-      {% for article in blog.articles limit: newLimit %}
-        <!-- おすすめ記事のIDのリストに現在の新着記事のIDを追加する -->
-        {%- assign recommendedIdsInCurrent = recommendedIds | join: ',' | append: ',' | append: article.id %}
-        <!-- uniq で重複を削除する、配列の長さが追加前と変化があれば「おすすめ記事に含まれていない」 -->
-        {%- assign uniqIds = recommendedIdsInCurrent | split: ',' | uniq %}
+    {% for article in blog.articles limit: newLimit %}
+    <!-- おすすめ記事のIDのリストに現在の新着記事のIDを追加する -->
+    {%- assign recommendedIdsInCurrent = recommendedIds | join: ',' | append: ',' | append: article.id %}
+    <!-- uniq で重複を削除する、配列の長さが追加前と変化があれば「おすすめ記事に含まれていない」 -->
+    {%- assign uniqIds = recommendedIdsInCurrent | split: ',' | uniq %}
 
-        <!-- 「おすすめ記事に含まれていない」かつ「新着記事の表示カウンター」のときのみ表示 -->
-        {% if uniqIds.size != recommendedIds.size and newCounter < section.settings.post_limit %}
-          <!-- 新着記事の表示カウンターをインクリメント -->
-          {%- assign newCounter = newCounter | plus: 1 %}
-          {%- assign id = "sc-news-new-" | append: article.id %}
+    <!-- 「おすすめ記事に含まれていない」かつ「新着記事の表示カウンター」のときのみ表示 -->
+    {% if uniqIds.size != recommendedIds.size and newCounter < section.settings.post_limit %}
+    <!-- 新着記事の表示カウンターをインクリメント -->
+    {%- assign newCounter = newCounter | plus: 1 %}
+    {%- assign id = "sc-news-new-" | append: article.id %}
 
-          <li class="grid__item">
-            <article
-              aria-labelledby="{{ id }}"
-              class="sc-news-new__item__article"
-            >
-              <!-- link -->
-              <a href="{{ article.url }}" class="sc-news-new__item__link article__link full-width-link">
-                <span class="visually-hidden">{{ article.title }}</span>
-              </a>
+    <li class="sc-news-new__item grid__item">
+      <article aria-labelledby="{{ id }}" class="sc-news-new__item__article">
+        <!-- link -->
+        <a href="{{ article.url }}" class="sc-news-new__item__link article__link full-width-link">
+          <span class="visually-hidden">{{ article.title }}</span>
+        </a>
 
-              <!-- thumbnail -->
-              {%- assign thumbnail = 'thumbnail.png' | file_url %}
-              {% if article.image %}
-                {%- assign thumbnail = article.image | img_url: 'medium' %}
-              {% endif %}
-              <div class="sc-news-new-item__thumbnail">
-                <div
-                  style="background-image: url({{ thumbnail }});"
-                  class="sc-news__thumbnail"
-                ></div>
-              </div>
-
-              <div class="sc-news-new-item__content">
-                <!-- title -->
-                <h3 id="{{ id }}" class="sc-news-new-item__title">
-                  {{ article.title }}
-                </h3>
-
-                <!-- date -->
-                <span class="sc-news-new-item__date">
-                  {{ article.published_at | time_tag: format: 'date' }}
-                </span>
-
-                <!-- excerpt -->
-                <div class="sc-news-new-item__excerpt">
-                  {% if article.excerpt.size > 0 %}
-                    {{ article.excerpt }}
-                  {% else %}
-                    {{ article.content | strip_html | truncate: 150 }}
-                  {% endif %}
-                </div>
-              </div>
-            </article>
-          </li>
+        <!-- thumbnail -->
+        {%- assign thumbnail = 'thumbnail.png' | file_url %}
+        {% if article.image %}
+        {%- assign thumbnail = article.image | image_url %}
         {% endif %}
-      {% endfor %}
-    </ul>
+        <div class="sc-news-new-item__thumbnail">
+          <div style="background-image: url({{ thumbnail }});" class="sc-news__thumbnail"></div>
+        </div>
+
+        <div class="sc-news-new-item__content">
+          <!-- title -->
+          <h3 id="{{ id }}" class="sc-news-new-item__title">
+            {{ article.title }}
+          </h3>
+
+          <!-- date -->
+          <span class="sc-news-new-item__date">
+            {{ article.published_at | time_tag: format: 'date' }}
+          </span>
+
+          <!-- excerpt -->
+          <div class="sc-news-new-item__excerpt">
+            {% if article.excerpt.size > 0 %}
+            {{ article.excerpt }}
+            {% else %}
+            {{ article.content | strip_html | truncate: 150 }}
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
   {% endunless %}
+
+  <div class="text-center">
+    <a href="{{ blog.url }}" class="btn" aria-label="{{ 'blogs.article.view_all_blogs' | t }}">
+      {{ 'blogs.article.view_all' | t }}
+    </a>
+  </div>
 </div>
-
-
 
 {% schema %}
 {
