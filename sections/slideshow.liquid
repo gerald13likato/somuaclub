@@ -50,7 +50,7 @@
                   data-alt="{{ block_image.alt | escape }}"
                   {% endunless %}
                   class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
-                  data-bg="{{ block_image | image_url: width: 300, height: 300 }}"
+                  data-bg="{{ block_image | img_url: '300x300' }}"
                   data-bgset="{% render 'bgset', image: block_image %}"
                   data-sizes="auto"
                   data-parent-fit="contain"

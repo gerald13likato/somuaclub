@@ -33,7 +33,7 @@
              data-image-loading-animation
         ></div>
         <noscript>
-          <div class="collection-hero__image" style="background-image: url({{ collection.image | image_url: width: 2048, height: 600, crop: 'top' }});"></div>
+          <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
         </noscript>
         <div class="collection-hero__title-wrapper">
           <h1 class="collection-hero__title page-width">

@@ -40,7 +40,7 @@
   {% case media.media_type %}
     {% when 'image' %}
       {% capture zoom_media_id %}ImageZoom-{{ section.id }}-{{ media.id }}{% endcapture %}
-      {%- assign img_url = media | image_url: width: 1, height: 1 | replace: '_1x1.', '_{width}x.' -%}
+      {%- assign img_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
       {% render 'image-style', height: height, wrapper_id: media_wrapper_id, img_id: media_id, image: media.preview_image %}
       <div
         id="{{ zoom_media_id }}"

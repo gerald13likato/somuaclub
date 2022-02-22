@@ -11,6 +11,15 @@
   {%- assign number_of_comments = article.comments_count -%}
 {%- endif -%}
 
+<div class="article-thumbnail-container">
+  <!-- thumbnail -->
+  {%- assign thumbnail = 'thumbnail.png' | file_url %}
+  {% if article.image %}
+  {%- assign thumbnail = article.image | image_url %}
+  {% endif %}
+  <div style="background-image: url({{ thumbnail }});" class="article-thumbnail"></div>
+</div>
+
 <article class="page-width" aria-labelledby="title-0">
   <div class="grid">
     <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">

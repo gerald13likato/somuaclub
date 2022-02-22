@@ -1600,10 +1600,6 @@ textarea {
 }
 
 /*=============== Critical CSS ===================*/
-.main-content {
-  opacity: 1;
-}
-
 .main-content .shopify-section {
   display: inherit;
 }
@@ -1613,14 +1609,6 @@ textarea {
 }
 
 /*================ #Basic Styles ================*/
-.main-content {
-  display: block;
-  padding-top: 36px;
-}
-
-/*   @media only screen and (min-width: 750px) {
-    .main-content {
-      padding-top: 55px; } } */
 .section-header {
   margin-bottom: 35px;
 }
@@ -5310,6 +5298,13 @@ hr {
     padding-right: 55px;
   }
 }
+.article-template {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
 .article-listing {
   padding-top: 55px;
   margin-bottom: 55px;
@@ -9391,25 +9386,6 @@ hr {
   margin-bottom: 0;
 }
 
-/* ad banner */
-.ad_banner {
-  width: 100%;
-  height: 70px;
-}
-
-.ad_items {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100%;
-}
-
-.ad_pics {
-  max-height: 50px;
-}
-
-/* end of ad banner */
 /* ============================================================================
   SOMUA CLUB BASE
 ============================================================================== */
@@ -9480,6 +9456,15 @@ hr {
   }
 }
 /* ============================================================================
+  SOMUA CLUB MAIN
+============================================================================== */
+.main-content {
+  opacity: 1;
+  display: block;
+  padding-top: 36px;
+}
+
+/* ============================================================================
   SOMUA CLUB GLOBAL
 ============================================================================== */
 .sc-section-title,
@@ -9523,6 +9508,225 @@ hr {
     width: 40px;
   }
 }
+.article-template,
+.article-thumbnail-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.article-thumbnail {
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 55%;
+}
+
+.article-listing {
+  padding-top: 55px;
+  margin-bottom: 55px;
+}
+
+.article {
+  margin-bottom: 55px;
+}
+
+.article__meta {
+  margin-bottom: 22px;
+}
+
+.article__title {
+  margin-top: 72px;
+  margin-bottom: 11px;
+}
+
+@media only screen and (max-width: 749px) {
+  .article-thumbnail-container {
+    margin-top: -36px;
+  }
+
+  .article__title {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+
+  .article__title--has-image {
+    padding-left: 22px;
+  }
+}
+.article__author {
+  margin-right: 10px;
+}
+
+.article__author,
+.article__date {
+  display: inline-block;
+  margin-bottom: 22px;
+}
+
+.template-article .article__author,
+.article__meta .article__author,
+.template-article .article__date,
+.article__meta .article__date {
+  margin-bottom: 0;
+}
+
+.article__tags {
+  margin-bottom: 27.5px;
+}
+
+.article__tags--list {
+  font-style: italic;
+}
+
+.article__link {
+  display: block;
+}
+
+@media only screen and (max-width: 749px) {
+  .article__link {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+.article__link:not([disabled]):hover .article__grid-image-wrapper::before,
+.article__link:focus .article__grid-image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-image-overlay);
+  opacity: var(--opacity-image-overlay);
+  z-index: 1;
+}
+
+.article__link--fixed-overlay:not([disabled]):hover .article__grid-image-wrapper::before,
+.article__link--fixed-overlay:focus .article__grid-image-wrapper::before {
+  bottom: auto;
+}
+
+.article__meta-buttons li:first-child {
+  margin-right: 1.5rem;
+}
+
+.article__comment-count {
+  border-color: transparent;
+  border-bottom-color: currentColor;
+  padding: 0 0 3px 0;
+}
+
+.article__comment-count:not([disabled]):hover,
+.article__comment-count:focus {
+  border-color: transparent;
+  border-bottom-color: currentColor;
+}
+
+.rte--article {
+  margin-bottom: 20px;
+}
+
+/*============================================================================
+  Blog article grid
+==============================================================================*/
+.grid--blog {
+  margin-bottom: -55px;
+  overflow: auto;
+}
+
+.article__grid-tag {
+  margin-right: 10px;
+}
+
+.article__grid-meta {
+  margin-bottom: 55px;
+}
+
+@media only screen and (max-width: 749px) {
+  .article__grid-meta--has-image {
+    float: left;
+    padding-left: 22px;
+  }
+}
+.article__grid-excerpt {
+  margin-bottom: 17.5px;
+}
+
+.article-image-wrapper.article__grid-image-wrapper {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.article__grid-image-wrapper {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.article__grid-image-wrapper--small {
+  width: 50%;
+}
+
+.article__grid-image-container {
+  display: block;
+  clear: both;
+  position: relative;
+  margin: 0 auto 27.5px 0;
+  min-height: 1px;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 749px) {
+  .article__grid-image-container {
+    float: left;
+    margin: 0 0 55px 0;
+  }
+}
+.article__grid-image-container img {
+  display: block;
+}
+
+.article__grid-image {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.js .article__grid-image {
+  position: absolute;
+  top: 0;
+}
+
+.article__list-image-container {
+  display: block;
+  clear: both;
+  position: relative;
+  min-height: 1px;
+  width: 100%;
+  height: 100%;
+}
+
+.article__list-image-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.article__list-image {
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
 /* ============================================================================
   SOMUA CLUB NEWS
 ============================================================================== */
@@ -9532,10 +9736,10 @@ hr {
 
 .sc-news__thumbnail {
   width: 100%;
-  padding-top: 72%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding-top: 72%;
 }
 
 .sc-news-recommended .sc-news-recommended__item__article {
@@ -9615,16 +9819,34 @@ hr {
     margin-left: 72px;
   }
 }
+/* ============================================================================
+  SOMUA CLUB NEWS
+============================================================================== */
+.ad_banner {
+  width: 100%;
+  height: 70px;
+}
 
-/*# sourceMappingURL=theme.css.map */
+.ad_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.ad_pics {
+  max-height: 50px;
+}
 
 /*============================================================================
   SOMUA CLUB TOP TEST SLIDER
 ==============================================================================*/
-.top-slider-container{
-  width:100%;
-  height:690px;
-  margin: 0 auto;
+.top-slider-container {
+  width: 100%;
+  height: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .content.desktop {
@@ -9640,7 +9862,7 @@ hr {
 
 .slider-container {
   height: 100%;
-  width: 67%;
+  width: 60%;
   margin-right: 10px;
 }
 
@@ -9654,7 +9876,7 @@ hr {
 .right-container {
   display: flex;
   flex-direction: column;
-  width: 33%;
+  width: 40%;
   margin-left: 10px;
 }
 
@@ -9674,14 +9896,20 @@ hr {
 }
 
 @media only screen and (max-width: 749px) {
+  .top-slider {
+    padding: 0;
+  }
+
   .top-slider-container {
     width: 100%;
     height: 500px;
+    margin-top: -36px;
   }
 
   .content.desktop {
     display: none;
   }
+
   .content.mobile {
     display: block;
     height: 100%;
@@ -9698,3 +9926,5 @@ hr {
     display: none;
   }
 }
+
+/*# sourceMappingURL=theme.css.map */

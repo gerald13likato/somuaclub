@@ -2,7 +2,7 @@
 {% assign pcRange = section.settings.pc_pic_nums %}
 {% assign rangeLimit = pcRange | plus: 2%}
 
-<div class="page-width">
+<div class="top-slider page-width">
   <div class="top-slider-container">
     <div class="content desktop">
       <div class="slider-container">
@@ -101,14 +101,13 @@
 {% javascript %}
 
 $('.slider-container').slick({
+  arrows: false,
   slidesToShow: 1,
   slidesToScroll: 1,
   adaptiveHeight: false,
-  arrows: false,
   dots: true,
-  //フェード設定
-  //autoplay: true,
-  //autoplaySpeed: 3000,
+  autoplay: true,
+  autoplaySpeed: 3000,
   focusOnSelect: true,
 })
 {% endjavascript %}

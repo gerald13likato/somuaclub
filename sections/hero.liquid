@@ -22,7 +22,7 @@
          id="Hero-{{ section.id }}"
          data-layout="{{ section.settings.hero_layout }}"
          data-image-loading-animation>
-      {%- assign img_url = section.settings.image | image_url: width: 1, height: 1 | replace: '_1x1.', '_{width}x.' -%}
+      {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
       {%- if section.settings.image.width < max_width -%}
         {%- assign slide_width = section.settings.image.width -%}
       {%- endif -%}
@@ -73,7 +73,7 @@
           aria-label="{{ section.settings.image.alt | escape }}"
           data-alt="{{ section.settings.image.alt | escape }}"
           {% endunless %}
-         data-bg="{{ section.settings.image | image_url: width: 300, height: 300 }}"
+         data-bg="{{ section.settings.image | img_url: '300x300' }}"
          data-bgset="{% render 'bgset', image: section.settings.image %}"
          data-sizes="auto"
          data-parent-fit="cover"

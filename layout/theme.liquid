@@ -29,7 +29,7 @@
   {%- endif -%}
 
   {%- if settings.favicon != blank -%}
-    <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
 
   {%- capture seo_title -%}
@@ -202,7 +202,6 @@
   <!-- Slick JSの読み込み -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  {{ 'slick-theme.js' | asset_url | script_tag }}
 </head>
 
 <body class="template-{{ request.page_type | handle }}">
