@@ -9397,6 +9397,10 @@ hr {
   margin: 0 auto;
   padding: 0 24px;
 }
+.page-width.is-sm,
+.site-header.is-sm {
+  max-width: 1080px;
+}
 
 .page-width::after {
   content: "";
@@ -9730,10 +9734,6 @@ hr {
 /* ============================================================================
   SOMUA CLUB NEWS
 ============================================================================== */
-.sc-news {
-  max-width: 1080px;
-}
-
 .sc-news__thumbnail {
   width: 100%;
   background-position: center;

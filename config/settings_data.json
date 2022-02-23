@@ -221,23 +221,23 @@
               "recommended_articles": "news\/sample-001"
             }
           },
-          "3d71f3c2-fdc0-4dde-8d4f-aba756c131bb": {
-            "type": "article",
-            "settings": {
-              "recommended_articles": "news\/sample-002"
-            }
-          },
           "0bed9d5d-a3f5-4a77-8696-81ad6e018fa5": {
             "type": "article",
             "settings": {
               "recommended_articles": "news\/sample-003"
             }
+          },
+          "3d71f3c2-fdc0-4dde-8d4f-aba756c131bb": {
+            "type": "article",
+            "settings": {
+              "recommended_articles": "news\/sample-002"
+            }
           }
         },
         "block_order": [
           "e92e61b0-8d4f-404a-a55b-8d46dbcd4907",
-          "3d71f3c2-fdc0-4dde-8d4f-aba756c131bb",
-          "0bed9d5d-a3f5-4a77-8696-81ad6e018fa5"
+          "0bed9d5d-a3f5-4a77-8696-81ad6e018fa5",
+          "3d71f3c2-fdc0-4dde-8d4f-aba756c131bb"
         ],
         "settings": {
           "blog": "news",
