@@ -1,0 +1,126 @@
+* {
+  list-style: none;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.slider_container {
+  width: 72%;
+  height: 500px;
+  max-width: 72%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.image1 {
+  background-image: url('./img/left.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.image2 {
+  background-image: url('./img/right-top.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.image3 {
+  background-image: url('./img/right-bottom.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.slider {
+  height: 100%;
+  flex: 2;
+  width: 67%;
+  margin-right: 20px;
+}
+
+.right-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  margin-left: 20px;
+}
+
+.img_wrap-top {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 10px;
+}
+
+.img_wrap-bottom {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  margin-top: 10px;
+}
+
+.img_description_layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(52,58,64,0.5);
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img_description {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.img_wrap-top:hover .img_description_layer {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img_wrap-bottom:hover .img_description_layer {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img_description {
+  transition: .2s;
+  transform: translateY(1em);
+}
+
+.img_wrap-top:hover .img_description {
+  transform: translateY(0);
+}
+
+.img_wrap-bottom:hover .img_description {
+  transform: translateY(0);
+}
+
+.right-top {
+  background-image: url('./img/right-top.jpg');
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.right-bottom {
+  background-image: url('./img/right-bottom.jpg');
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
