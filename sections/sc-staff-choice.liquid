@@ -1,5 +1,6 @@
 {% assign section_title = section.settings.title %}
 {% assign main_image = section.settings.main_image %}
+{% assign image_position = section.settings.image_position %}
 {% assign description_title = section.settings.description_title%}
 {% assign description = section.settings.description %}
 {% assign button_link = section.settings.button_link %}
@@ -21,7 +22,7 @@
         <p>
           {{ description | newline_to_br}}
         </p>
-        <a href="{{ button_link }}" class="btn sc-sc-btn__custom">{{ button_text }}</a>
+        <a href="{{ button_link }}" class="btn">{{ button_text }}</a>
       </div>
     </div>
     <div class="sc-sc-outer__products__container"></div>
@@ -32,29 +33,6 @@
   "name": "Staff Choice",
   "settings":
   [
-  {
-    "type": "select",
-    "id": "color_scheme",
-    "label": "Color Scheme",
-    "options": [
-    {
-      "value": "white",
-      "label": "White"
-    },
-    {
-      "value": "light",
-      "label": "Light"
-    },
-    {
-      "value": "feature",
-      "label": "Feature"
-    },
-    {
-      "value": "dark",
-      "label": "Dark"
-    }
-    ]
-  },
   {
     "type": "text",
     "id": "title",
@@ -93,12 +71,12 @@
     "label": "Description Title"
   },
   {
-    "type": "textarea",
+    "type": "richtext",
     "id": "description",
     "label": "Description"
   },
   {
-    "type": "link_list",
+    "type": "url",
     "id": "button_link",
     "label": "Button Link"
   },
