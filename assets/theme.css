@@ -9963,11 +9963,69 @@ hr {
 }
 
 .sc-sc__image {
-  margin-bottom: 20px;
   position: relative;
   width: 100%;
   height: auto;
 }
+
+.sc-sc-outer__products__container {
+  flex: 0 0 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.sc-sc-product__container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.sc-sc-outer__products__container .sc-sc-products {
+  flex: 0 0 45%;
+  position: relative;
+}
+
+.sc-sc-outer__products__container .sc-sc-products .indiv-product {
+  margin: 0 5px 20px;
+}
+
+.indiv-product {
+  position: relative;
+}
+
+.grid__image {
+  height: 0;
+}
+
+.indiv-product .hp-title {
+  padding-top: 15px;
+  text-align: center;
+}
+
+.indiv-product .hp-title .indiv-product-title-text {
+  margin-bottom: 0;
+  margin-top: 5px;
+  line-height: 1.3;
+  text-align: center;
+  display: block;
+}
+
+.indiv-product .hp-title .indiv-product-vendor {
+  display: block;
+  padding-bottom: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.indiv-product .hp-title .indiv-product-money {
+  display: block;
+  padding-bottom: 5px;
+  text-align: center;
+  width: 100%;
+}
+
 
 
 /*# sourceMappingURL=theme.css.map */
