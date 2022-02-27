@@ -9963,10 +9963,18 @@ hr {
 }
 
 .sc-sc__image {
+  margin-bottom: 20px;
   position: relative;
   width: 100%;
   height: auto;
 }
+
+.sc-sc-description__title {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 右半分 */
 
 .sc-sc-outer__products__container {
   flex: 0 0 50%;
