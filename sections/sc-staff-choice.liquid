@@ -11,9 +11,17 @@
     <h2 class="sc-section-title">{{ section_title }}</h2>
   </header>
   <div class="sc-sc-main">
+    <!-- left section -->
     <div class="sc-sc-image__container">
       <!-- main image -->
       <div class="sc-sc__image">
+        {% for block in section.blocks %}
+        {% assign position_from_top = block.settings.position_from_top %}
+        {% assign position_from_left = block.settings.position_from_left%}
+        <div class="sc-sc-dot__container" style="top: {{ position_from_top | append: "%"}}; left: {{ position_from_left | append: "%"}}">
+          <button class="sc-sc__dot"></button>
+        </div>
+        {% endfor %}
         <img class="sc-sc__image"src="{{ main_image | img_url: 'master'}}">
       </div>
       <!-- image description -->
@@ -23,6 +31,7 @@
         <a href="{{ button_link }}" class="btn">{{ button_text }}</a>
       </div>
     </div>
+    <!-- right section -->
     <div class="sc-sc-outer__products__container">
       <div class="sc-sc-product__container">
         {% for block in section.blocks %}
@@ -33,12 +42,14 @@
         {% assign product_price = product.price %}
         <div class="sc-sc-products">
           <article class="indiv-product">
-            <a href="" class="grid__image"><img class="sc-sc__image"src="{{ product_image | img_url: 'master'}}"></a>
+            <div href="" class="grid__image">
+              <a href=""><img class="sc-sc-indiv__image"src="{{ product_image | img_url: 'master'}}"></a>
+            </div>
             <div class="hp-title">
               <a href="" class="indiv-product__link">
-                <span class="indiv-product-title-text">{{ product_title }}</span>
+                <h4 class="indiv-product-title-text">{{ product_title }}</h4>
                 <span class="indiv-product-vendor"> {{ product_vendor }}</span>
-                <span class="indiv-product-money"> {{ product_price }}</span>
+                <span class="indiv-product-money"> {{ product_price | money }}</span>
               </a>
             </div>
           </article>
