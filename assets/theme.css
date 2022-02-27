@@ -10033,6 +10033,7 @@ hr {
   top: 0;
   z-index: -1;
   border-radius: 50%;
+  animation: 2s shopTheLookDotKeyframe ease-in-out infinite;
   opacity: .4;
 }
 
@@ -10118,5 +10119,6 @@ hr {
   width: 100%;
   font-weight: 600;
 }
+
 
 /*# sourceMappingURL=theme.css.map */

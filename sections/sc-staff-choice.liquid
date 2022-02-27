@@ -1,5 +1,6 @@
 {% assign section_title = section.settings.title %}
 {% assign main_image = section.settings.main_image %}
+{% assign hotspot_color = section.settings.hotspot_color %}
 {% assign image_position = section.settings.image_position %}
 {% assign description_title = section.settings.description_title%}
 {% assign description = section.settings.description %}
@@ -19,14 +20,14 @@
         {% assign position_from_top = block.settings.position_from_top %}
         {% assign position_from_left = block.settings.position_from_left%}
         <div class="sc-sc-dot__container" style="top: {{ position_from_top | append: "%"}}; left: {{ position_from_left | append: "%"}}">
-          <button class="sc-sc__dot"></button>
+          <button class="sc-sc__dot" style="background-color: {{ hotspot_color }}"></button>
         </div>
         {% endfor %}
         <img class="sc-sc__image"src="{{ main_image | img_url: 'master'}}">
       </div>
       <!-- image description -->
       <div class="sc-sc-description__container">
-        <h2 class="sc-sc-description__title">{{ description_title }}</h2>
+        <h2 class="sc-sc-description__title">{{ description_title }}</h2> 
         {{ description | newline_to_br}}
         <a href="{{ button_link }}" class="btn">{{ button_text }}</a>
       </div>
