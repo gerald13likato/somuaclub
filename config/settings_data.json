@@ -202,7 +202,7 @@
           "rows": 2,
           "show_collection_image": true,
           "show_vendor": false,
-          "sort_enable": true,
+          "sort_enable": false,
           "tags_enable": true
         }
       },
@@ -230,7 +230,7 @@
           "3d71f3c2-fdc0-4dde-8d4f-aba756c131bb": {
             "type": "article",
             "settings": {
-              "recommended_articles": "news\/sample-002"
+              "recommended_articles": "news\/sample-004"
             }
           }
         },

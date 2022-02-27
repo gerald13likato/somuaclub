@@ -1,5 +1,5 @@
 <div class="page-width is-sm">
-  <header class="text-center">
+  <header class="text-center" data-scroll="fade-in-up">
     <h2 class="sc-section-title">SOMUA CLUB NEWS</h2>
   </header>
 
@@ -16,7 +16,7 @@
     <!-- おすすめ記事のIDのリストに追加する -->
     {%- assign recommendedIds = recommendedIds | append: article.id | append: "," %}
 
-    <li class="sc-news-recommended__item grid__item medium-up--one-third">
+    <li class="sc-news-recommended__item grid__item medium-up--one-third" data-scroll="fade-in-up">
       <article aria-labelledby="{{ id }}" class="sc-news-recommended__item__article">
         <!-- link -->
         <a href="{{ article.url }}" class="sc-news-recommended__item__link article__link full-width-link">
@@ -66,7 +66,7 @@
     {%- assign newCounter = newCounter | plus: 1 %}
     {%- assign id = "sc-news-new-" | append: article.id %}
 
-    <li class="sc-news-new__item grid__item">
+    <li class="sc-news-new__item grid__item" data-scroll="fade-in-up">
       <article aria-labelledby="{{ id }}" class="sc-news-new__item__article">
         <!-- link -->
         <a href="{{ article.url }}" class="sc-news-new__item__link article__link full-width-link">
@@ -109,7 +109,7 @@
   </ul>
   {% endunless %}
 
-  <div class="text-center">
+  <div class="text-center" data-scroll="fade-in-up">
     <a href="{{ blog.url }}" class="btn" aria-label="{{ 'blogs.article.view_all_blogs' | t }}">
       {{ 'blogs.article.view_all' | t }}
     </a>
