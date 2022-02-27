@@ -10022,6 +10022,12 @@ hr {
   transition: transform .25s ease-in-out;
   border: 0;
   padding: 0; 
+  cursor: pointer;
+}
+
+.sc-sc__image .sc-sc__dot:hover {
+  transform: scale(1.2);
+  transition: transform .25s ease-in-out;
 }
 
 .sc-sc__image .sc-sc__dot:after {
@@ -10033,9 +10039,27 @@ hr {
   top: 0;
   z-index: -1;
   border-radius: 50%;
-  animation: 2s shopTheLookDotKeyframe ease-in-out infinite;
+  animation: 2s pulse ease-in-out infinite;
   opacity: .4;
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgb(255, 255, 255);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgb(255, 255, 255);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rgb(255, 255, 255);
+    opacity: 0;
+  }
+}
+
 
 .sc-sc-description__title {
   font-size: 1.6rem;
@@ -10056,6 +10080,7 @@ hr {
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 24px;
 }
 
 .sc-sc-outer__products__container .sc-sc-products {
@@ -10118,6 +10143,70 @@ hr {
   text-align: left;
   width: 100%;
   font-weight: 600;
+}
+
+.sc-sc-description__container--mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 749px) {
+  /* セクション全体 */
+  .sc-sc-main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* PC description turn invisible */
+  .sc-sc-description__container {
+    display: none;
+  }
+
+  /* bottom section */
+  .sc-sc-outer__products__container{
+    margin-left: -10px;
+  }
+
+  .sc-sc-product__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sc-sc-outer__products__container .sc-sc-products {
+    flex: 0 0 50%;
+    padding-left: 10px;
+  }
+
+  .sc-sc-outer__products__container .sc-sc-products .indiv-product {
+    margin: 0 0 20px;
+  }
+
+  .indiv-product .hp-title .indiv-product-title-text {
+    font-size: 14px;
+  }
+
+  .indiv-product .hp-title .indiv-product-vendor {
+    font-size: 12px;
+  }
+
+  .indiv-product .hp-title .indiv-product-money {
+    font-size: 14px;
+  }
+
+  /* Description */
+  .sc-sc-description__container--mobile {
+    display: block;
+  }
+
+  .sc-sc-description__title {
+    font-size: 20px;
+  }
+
+  .sc-sc-button {
+    margin-top: 50px;
+  }
+
 }
 
 

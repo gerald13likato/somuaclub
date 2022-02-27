@@ -8,12 +8,12 @@
 {% assign button_text = section.settings.button_text %}
 
 <div class="page-width is-sm">
-  <header class="text-center">
+  <header class="text-center" data-scroll="fade-in-up">
     <h2 class="sc-section-title">{{ section_title }}</h2>
   </header>
   <div class="sc-sc-main">
     <!-- left section -->
-    <div class="sc-sc-image__container">
+    <div class="sc-sc-image__container" data-scroll="fade-in-up">
       <!-- main image -->
       <div class="sc-sc__image">
         {% for block in section.blocks %}
@@ -26,7 +26,7 @@
         <img class="sc-sc__image"src="{{ main_image | img_url: 'master'}}">
       </div>
       <!-- image description -->
-      <div class="sc-sc-description__container">
+      <div class="sc-sc-description__container" data-scroll="fade-in-up">
         <h2 class="sc-sc-description__title">{{ description_title }}</h2> 
         {{ description | newline_to_br}}
         <a href="{{ button_link }}" class="btn">{{ button_text }}</a>
@@ -41,7 +41,7 @@
         {% assign product_title = product.title %}
         {% assign product_vendor = product.vendor %}
         {% assign product_price = product.price %}
-        <div class="sc-sc-products">
+        <div class="sc-sc-products" data-scroll="fade-in-up">
           <article class="indiv-product">
             <div href="" class="grid__image">
               <a href=""><img class="sc-sc-indiv__image"src="{{ product_image | img_url: 'master'}}"></a>
@@ -56,6 +56,13 @@
           </article>
         </div>
         {% endfor %}
+      </div>
+    </div>
+    <div class="sc-sc-description__container--mobile" data-scroll="fade-in-up">
+      <h2 class="sc-sc-description__title">{{ description_title }}</h2> 
+      {{ description | newline_to_br}}
+      <div class="sc-sc-button text-center">
+        <a href="{{ button_link }}" class="btn">{{ button_text }}</a>
       </div>
     </div>
   </div>
