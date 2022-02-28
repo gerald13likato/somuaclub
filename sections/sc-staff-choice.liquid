@@ -13,9 +13,9 @@
   </header>
   <div class="sc-sc-main">
     <!-- left section -->
-    <div class="sc-sc-image__container" data-scroll="fade-in-up">
+    <div class="sc-sc-main__image__container" data-scroll="fade-in-up">
       <!-- main image -->
-      <div class="sc-sc__image">
+      <div class="sc-sc__image__container">
         {% for block in section.blocks %}
         {% assign position_from_top = block.settings.position_from_top %}
         {% assign position_from_left = block.settings.position_from_left%}
@@ -38,13 +38,14 @@
         {% for block in section.blocks %}
         {% assign product = block.settings.product%}
         {% assign product_image = product.featured_image %}
+        {% assign product_url = product.url %}
         {% assign product_title = product.title %}
         {% assign product_vendor = product.vendor %}
         {% assign product_price = product.price %}
         <div class="sc-sc-products" data-scroll="fade-in-up">
           <article class="indiv-product">
             <div href="" class="grid__image">
-              <a href=""><img class="sc-sc-indiv__image"src="{{ product_image | img_url: 'master'}}"></a>
+              <a href="{{ product_url }}"><img class="sc-sc-indiv__image"src="{{ product_image | img_url: 'master'}}"></a>
             </div>
             <div class="hp-title">
               <a href="" class="indiv-product__link">
