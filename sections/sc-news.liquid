@@ -9,7 +9,7 @@
   {%- assign recommendedIds = "" %}
 
   {% if section.blocks.size > 1 %}
-  <ul class="sc-news-recommended grid grid--uniform">
+  <ul class="sc-news-recommended grid grid--uniform ofh">
     {% for block in section.blocks %}
     {%- assign article = articles[block.settings.recommended_articles] %}
     {%- assign id = "sc-news-recommended-" | append: article.id %}
