@@ -9685,3 +9685,31 @@ function removeImageLoadingAnimation(image) {
     imageWrapper.removeAttribute('data-image-loading-animation');
   }
 }
+
+
+// Staff Choice
+
+// クリックされたら、onclick関数が働く
+// onclick関数は、クリックされたclass(sc-sc__dot)のdata-indexを取得し、
+// （data-indexじゃなく、単にインデックスでいいのでは？）
+// indiv-productのdata-indexと照合を行う。
+// if true：sc-sc-product_fadedを削除
+// else: sc-sc-product_fadedクラスを追加
+
+const target_class = document.querySelectorAll('.sc-sc__dot');
+
+for (let i = 0; i < target_class.length; i++) {
+  target_class[i].addEventListener('click', () => {
+    const dot_index = i;
+    const product_class = document.querySelectorAll('.indiv-product');
+    for (let j = 0; j < product_class.length; j++) {
+      if(dot_index != j) {
+        // 透明度低下
+        product_class[j].classList.add('sc-sc-product_faded');
+      } else {
+        product_class[j].classList.remove('sc-sc-product_faded');
+      }
+    }
+    
+  })
+}

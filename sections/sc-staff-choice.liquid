@@ -18,8 +18,10 @@
         {% for block in section.blocks %}
         {% assign position_from_top = block.settings.position_from_top %}
         {% assign position_from_left = block.settings.position_from_left%}
+        {% assign block_index = forloop.index %}
+        {% assign dot_id = "dot_" | append: block_index %}
         <div class="sc-sc-dot__container" style="top: {{ position_from_top | append: "%"}}; left: {{ position_from_left | append: "%"}}">
-          <button class="sc-sc__dot" style="background-color: {{ hotspot_color }}"></button>
+          <button class="sc-sc__dot" id="{{ dot_id }}" data-index-number="{{block_index}}"style="background-color: {{ hotspot_color }}"></button>
         </div>
         {% endfor %}
         {{ main_image | image_url: width: 2236, height: 2236 | image_tag: class: 'sc-sc__image', sizes: '(min-width: 2000px) 1000px, (min-width: 1445px) calc(100vw / 2), (min-width: 1200px) calc(100vw / 1.75), (min-width: 750px) calc(100vw / 1.25), 100vw' }}
@@ -41,8 +43,10 @@
         {% assign product_title = product.title %}
         {% assign product_vendor = product.vendor %}
         {% assign product_price = product.price %}
+        {% assign block_index = forloop.index %}
+        {% assign product_index = "product_" | append: block_index %}
         <div class="sc-sc-products" data-scroll="fade-in-up">
-          <article class="indiv-product">
+          <article class="indiv-product" id="{{product_index}}" data-index-number="{{block_index}}">
             <div href="" class="grid__image">
               <a href="{{ product_url }}">{{ product_image | image_url: width: 1000, height: 1500 | image_tag: class: 'sc-sc-indiv__image', sizes: '(min-width: 2000px) 1000px, (min-width: 1445px) calc(100vw / 2), (min-width: 1200px) calc(100vw / 1.75), (min-width: 750px) calc(100vw / 1.25), 100vw' }}</a>
             </div>

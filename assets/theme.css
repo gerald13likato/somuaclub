@@ -10054,6 +10054,10 @@ hr {
   margin-bottom: 0.5rem;
 }
 
+.sc-sc-product_faded {
+  opacity: 0.4;
+}
+
 /* 右半分 */
 .sc-sc-outer__products__container {
   width: 50%;
@@ -10064,10 +10068,11 @@ hr {
 
 .sc-sc-product__container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 24px;
+  margin-left: 50px;
 }
 
 .sc-sc-outer__products__container .sc-sc-products {
@@ -10166,6 +10171,7 @@ hr {
   .sc-sc-product__container {
     display: flex;
     justify-content: space-between;
+    margin-left: 0;
   }
 
   .sc-sc-outer__products__container .sc-sc-products {
