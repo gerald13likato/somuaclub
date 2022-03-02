@@ -9689,13 +9689,6 @@ function removeImageLoadingAnimation(image) {
 
 // Staff Choice
 
-// クリックされたら、onclick関数が働く
-// onclick関数は、クリックされたclass(sc-sc__dot)のdata-indexを取得し、
-// （data-indexじゃなく、単にインデックスでいいのでは？）
-// indiv-productのdata-indexと照合を行う。
-// if true：sc-sc-product_fadedを削除
-// else: sc-sc-product_fadedクラスを追加
-
 const target_class = document.querySelectorAll('.sc-sc__dot');
 
 for (let i = 0; i < target_class.length; i++) {
@@ -9705,11 +9698,31 @@ for (let i = 0; i < target_class.length; i++) {
     for (let j = 0; j < product_class.length; j++) {
       if(dot_index != j) {
         // 透明度低下
-        product_class[j].classList.add('sc-sc-product_faded');
+        product_class[j].classList.add('sc-sc-product_fade');
       } else {
-        product_class[j].classList.remove('sc-sc-product_faded');
+        product_class[j].classList.remove('sc-sc-product_fade');
       }
     }
     
   })
+}
+
+// レスポンシブスクロール
+const sp_query = window.matchMedia('(max-width: 749px)');
+if (sp_query.matches) {
+  // 画面横幅が749px以下のときの処理
+  for (let i = 0; i < target_class.length; i++) {
+    target_class[i].addEventListener('click', () => {
+      const dt = i;
+      const pc = document.querySelectorAll('.indiv-product');
+      for (let j = 0; j < pc.length; j++) {
+        if(dt == j) {
+          let scroll_pc = pc[j];
+          scroll_pc.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+      }
+    })
+  }
 }
