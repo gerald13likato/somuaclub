@@ -9689,18 +9689,27 @@ function removeImageLoadingAnimation(image) {
 
 // Staff Choice
 
-const target_class = document.querySelectorAll('.sc-sc__dot');
+const dot_class = document.querySelectorAll('.sc-sc__dot');
 
-for (let i = 0; i < target_class.length; i++) {
-  target_class[i].addEventListener('click', () => {
+for (let i = 0; i < dot_class.length; i++) {
+  
+  dot_class[i].addEventListener('click', () => {
     const dot_index = i;
     const product_class = document.querySelectorAll('.indiv-product');
     for (let j = 0; j < product_class.length; j++) {
       if(dot_index != j) {
         // 透明度低下
         product_class[j].classList.add('sc-sc-product_fade');
-      } else {
+      } else if (dot_index == j) {
         product_class[j].classList.remove('sc-sc-product_fade');
+        
+        const sp_query = window.matchMedia('(max-width: 749px)');
+        if (sp_query.matches) {
+          let scrollToProduct = product_class[j];
+          scrollToProduct.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
       }
     }
     
@@ -9708,21 +9717,21 @@ for (let i = 0; i < target_class.length; i++) {
 }
 
 // レスポンシブスクロール
-const sp_query = window.matchMedia('(max-width: 749px)');
-if (sp_query.matches) {
-  // 画面横幅が749px以下のときの処理
-  for (let i = 0; i < target_class.length; i++) {
-    target_class[i].addEventListener('click', () => {
-      const dt = i;
-      const pc = document.querySelectorAll('.indiv-product');
-      for (let j = 0; j < pc.length; j++) {
-        if(dt == j) {
-          let scroll_pc = pc[j];
-          scroll_pc.scrollIntoView({
-            behavior: "smooth"
-          });
-        }
-      }
-    })
-  }
-}
+// const sp_query = window.matchMedia('(max-width: 749px)');
+// if (sp_query.matches) {
+//   // 画面横幅が749px以下のときの処理
+//   for (let i = 0; i < dot_class.length; i++) {
+//     dot_class[i].addEventListener('click', () => {
+//       const dt = i;
+//       const pc = document.querySelectorAll('.indiv-product');
+//       for (let j = 0; j < pc.length; j++) {
+//         if(dt == j) {
+//           let scroll_pc = pc[j];
+//           scroll_pc.scrollIntoView({
+//             behavior: "smooth"
+//           });
+//         }
+//       }
+//     })
+//   }
+// }
