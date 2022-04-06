@@ -9256,7 +9256,7 @@ hr {
 .main-content {
   opacity: 1;
   display: block;
-  padding-top: 36px;
+  padding-top: 40px;
 }
 
 /* ============================================================================
@@ -9676,7 +9676,7 @@ hr {
 
 @media only screen and (max-width: 749px) {
   .site-header {
-    padding: 0 5px;
+    padding: 0;
   }
 
   .logo-align--center .site-header__logo {
@@ -9946,6 +9946,10 @@ hr {
 }
 
 @media only screen and (max-width: 749px) {
+  .slick-list:hover {
+    opacity: 1;
+  }
+
   .top-slider {
     padding: 0;
   }
@@ -9953,7 +9957,6 @@ hr {
   .top-slider-container {
     width: 100%;
     height: 500px;
-    margin-top: -36px;
   }
 
   .content.desktop {
@@ -10046,9 +10049,9 @@ hr {
   z-index: -1;
   border-radius: 50%;
   animation: 2s pulse ease-in-out infinite;
-  box-shadow: white;
   opacity: 0.4;
 }
+
 .sc-sc-description__title {
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
@@ -10157,6 +10160,7 @@ hr {
   .sc-sc__image__container {
     height: auto;
   }
+
   /* PC description turn invisible */
   .sc-sc-description__container {
     display: none;

@@ -1,0 +1,46 @@
+<div class="sc-nav-container">
+  <style>
+    .sc-nav-container {
+      display: none;
+    }
+    
+    @media only screen and (max-width: 749px) {
+      .sc-nav-container {
+        height: 36px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        {% assign sc-nav-bgColor = section.settings.sc-nav-color %}
+        background-color: {{ sc-nav-bgColor}};
+    }
+    }
+
+  </style>
+
+  {% assign menu = linklists.main-menu%}
+  {% for link in menu.links%}
+  <a href="{{ link.url }}" class="sc-nav-link"><li class="sc-nav-lists">{{ link.title }}</li></a>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "nav menu",
+  "settings": [
+  {
+    "type": "color",
+    "id": "sc-nav-color",
+    "label": {
+      "en": "Navigation Background Color",
+      "ja": "セクション背景色"
+    }
+  }
+  ],
+  "presets": [
+  {
+    "name": "Nav Menu"
+  }
+  ]
+}
+{% endschema %}
