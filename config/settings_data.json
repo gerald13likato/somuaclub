@@ -188,8 +188,8 @@
         ],
         "settings": {
           "show_payment_icons": true,
-          "color_footer_bg": "#f7ecfd",
-          "color_footer_text": "#333232",
+          "color_footer_bg": "#ffffff",
+          "color_footer_text": "#000000",
           "show_currency_selector": false,
           "show_locale_selector": true
         }
@@ -202,7 +202,7 @@
           "rows": 2,
           "show_collection_image": true,
           "show_vendor": false,
-          "sort_enable": true,
+          "sort_enable": false,
           "tags_enable": true
         }
       },
@@ -230,7 +230,7 @@
           "3d71f3c2-fdc0-4dde-8d4f-aba756c131bb": {
             "type": "article",
             "settings": {
-              "recommended_articles": "news\/sample-002"
+              "recommended_articles": "news\/sample-004"
             }
           }
         },
@@ -258,53 +258,53 @@
           "5b11858a-0c13-4460-8389-25028fe9d7de": {
             "type": "text",
             "settings": {
-              "pc_image": "shopify:\/\/shop_images\/mondayflow.jpg",
-              "pc_link": "",
-              "sp_image": "shopify:\/\/shop_images\/IMG_7505.jpg",
-              "sp_link": ""
+              "pc_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_200_x_260_px_400_x_520_px_650_x_740_px.png",
+              "pc_link": "shopify:\/\/collections\/port",
+              "sp_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_200_x_260_px_400_x_520_px.png",
+              "sp_link": "shopify:\/\/collections\/port"
             }
           },
           "5bbe7720-1b25-4ed9-985d-357948fe6cd8": {
             "type": "text",
             "settings": {
-              "pc_image": "shopify:\/\/shop_images\/IMG_7505.jpg",
-              "pc_link": "",
-              "sp_image": "shopify:\/\/shop_images\/3bb42e6e1b42b75c3008408f45f5a2ae.jpg",
-              "sp_link": ""
+              "pc_image": "shopify:\/\/shop_images\/4_13685593-01ec-4efe-85db-e1b554ac39c4.png",
+              "pc_link": "shopify:\/\/products\/helen-wide-pants-beige",
+              "sp_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_200_x_260_px_400_x_520_px_dc9368aa-15fb-49c0-a8a4-ae9c7aa07528.png",
+              "sp_link": "shopify:\/\/collections\/free-delivery-list"
             }
           },
           "e8964e3a-6149-402c-be39-a72dde43cf86": {
             "type": "text",
             "settings": {
-              "pc_image": "shopify:\/\/shop_images\/portmayen.jpg",
-              "pc_link": "",
-              "sp_image": "shopify:\/\/shop_images\/mondayflow-wide002.jpg",
-              "sp_link": ""
+              "pc_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_1_2.png",
+              "pc_link": "shopify:\/\/blogs\/news\/sample-001",
+              "sp_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_200_x_260_px_400_x_520_px_03f1f1a4-1260-419b-b7a0-42c129d1d53c.png",
+              "sp_link": "shopify:\/\/products\/helen-wide-pants-beige"
             }
           },
           "0ead262b-5701-4679-90cf-83f349d141e0": {
             "type": "text",
+            "disabled": true,
             "settings": {
-              "pc_image": "shopify:\/\/shop_images\/mondayflow-wide002.jpg",
               "pc_link": "",
-              "sp_image": "shopify:\/\/shop_images\/211023_shoken_0019.jpg",
               "sp_link": ""
             }
           },
           "17368c68-9e35-412f-a27b-a692a0a0b44e": {
             "type": "text",
             "settings": {
-              "pc_image": "shopify:\/\/shop_images\/portmayne2.jpg",
-              "pc_link": "",
-              "sp_image": "shopify:\/\/shop_images\/portmayen.jpg",
-              "sp_link": ""
+              "pc_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_2.png",
+              "pc_link": "shopify:\/\/blogs\/news\/sample-004",
+              "sp_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_200_x_260_px_1_1e2fe82a-2351-49f0-a460-cf86f5171129.png",
+              "sp_link": "shopify:\/\/blogs\/news\/sample-001"
             }
           },
           "fb2fb964-629d-4be0-b2ba-af13321cd5a0": {
             "type": "text",
             "settings": {
-              "pc_image": "shopify:\/\/shop_images\/clove.jpg",
-              "pc_link": "",
+              "pc_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_200_x_260_px_400_x_520_px_dc9368aa-15fb-49c0-a8a4-ae9c7aa07528.png",
+              "pc_link": "shopify:\/\/collections\/free-delivery-list",
+              "sp_image": "shopify:\/\/shop_images\/SOMUA_CLIB_480_x_320_px_200_x_260_px_480_x_320_px_200_x_260_px_1.png",
               "sp_link": ""
             }
           }
@@ -318,25 +318,108 @@
           "fb2fb964-629d-4be0-b2ba-af13321cd5a0"
         ],
         "settings": {
-          "pc_pic_nums": 4,
-          "sp_pic_nums": 5
+          "pc_pic_nums": 3,
+          "sp_pic_nums": 4
         }
       },
       "16454546916198e419": {
         "type": "collection-list-test",
         "settings": {
           "title": "New items",
-          "collection": "port",
+          "collection": "new-item",
           "grid": 3,
           "rows": 3,
           "show_vendor": true,
           "show_view_all": true
+        }
+      },
+      "164596813948b8cace": {
+        "type": "sc-staff-choice",
+        "blocks": {
+          "f8811bbd-ad68-4ef4-9c7d-88f40efb8d97": {
+            "type": "text",
+            "settings": {
+              "product": "helen-wide-pants-beige",
+              "position_from_top": 32,
+              "position_from_left": 45
+            }
+          },
+          "c66e4512-46a1-4e01-8dce-3ac53a844ad0": {
+            "type": "text",
+            "settings": {
+              "product": "megan-culotte-off-white",
+              "position_from_top": 61,
+              "position_from_left": 57
+            }
+          },
+          "84b41942-980d-4942-8503-c5064b8e13d4": {
+            "type": "text",
+            "settings": {
+              "product": "lud-knee-socks-white",
+              "position_from_top": 88,
+              "position_from_left": 50
+            }
+          },
+          "f3d2dc2c-9373-4cd6-92bb-25d9495a9992": {
+            "type": "text",
+            "disabled": true,
+            "settings": {
+              "product": "coney-ankle-socks-lime",
+              "position_from_top": 91,
+              "position_from_left": 37
+            }
+          }
+        },
+        "block_order": [
+          "f8811bbd-ad68-4ef4-9c7d-88f40efb8d97",
+          "c66e4512-46a1-4e01-8dce-3ac53a844ad0",
+          "84b41942-980d-4942-8503-c5064b8e13d4",
+          "f3d2dc2c-9373-4cd6-92bb-25d9495a9992"
+        ],
+        "settings": {
+          "title": "Staff Choice",
+          "main_image": "shopify:\/\/shop_images\/220204portmayne39724.jpg",
+          "image_position": "left",
+          "hotspot_color": "#ffffff",
+          "description_title": "",
+          "description": "<p>SOMUA CLUB スタッフが厳選した今週のピックアップコーデをご紹介！今回は、\"PORT MAYNE\"の2022年春コレクションの商品を取り揃えた全身コーデです！<\/p><p><\/p>",
+          "button_link": "shopify:\/\/collections\/port",
+          "button_text": "port mayne"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "list",
+          "blog_show_author": true,
+          "blog_show_date": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true,
+          "media_size": "medium",
+          "enable_image_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "あなたへのおすすめ",
+          "show_vendor": false
         }
       }
     },
     "content_for_index": [
       "164545007833ee412a",
       "16454546916198e419",
+      "164596813948b8cace",
       "1644246585437ea8f8",
       "16425925847e3a4b87"
     ]

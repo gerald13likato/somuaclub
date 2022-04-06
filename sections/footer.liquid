@@ -87,6 +87,10 @@
 {%- endif -%}
 
 <style>
+  .site-footer {
+    border-top: 1px solid {{ section.settings.color_footer_bg | color_darken: 10 }};
+  }
+
   .site-footer__hr {
     border-bottom: 1px solid {{ section.settings.color_footer_bg | color_darken: 10 }};
   }
@@ -330,10 +334,10 @@
             {%- endif -%}
           </ul>
         {%- else -%}
-          <div class="small--hide site-footer-item-align-right {% if show_selectors or show_payment_icons %}site-footer-item-center-vertically{% endif %}">
+          {% comment %} <div class="small--hide site-footer-item-align-right {% if show_selectors or show_payment_icons %}site-footer-item-center-vertically{% endif %}">
             <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
             <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">{{ powered_by_link }}</small>
-          </div>
+          </div> {% endcomment %}
         {%- endif -%}
       </div>
 
@@ -344,16 +348,16 @@
       <div class="grid__item medium-up--hide {{ payment_width_class }} small--one-whole">{{ payment_icon_markup }}</div>
 
       {%- if social_icons and show_selectors -%}
-        <div class="grid__item small--hide site-footer-item-align-right {% if show_payment_icons %}one-half{% endif %}">
+        {% comment %} <div class="grid__item small--hide site-footer-item-align-right {% if show_payment_icons %}one-half{% endif %}">
           <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
           <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
-        </div>
+        </div> {% endcomment %}
       {%- endif -%}
 
-      <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
+      {% comment %} <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
         <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
         <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
-      </div>
+      </div> {% endcomment %}
     </div>
   </div>
 </footer>

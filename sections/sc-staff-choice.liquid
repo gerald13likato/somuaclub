@@ -1,44 +1,56 @@
 {% assign section_title = section.settings.title %}
 {% assign main_image = section.settings.main_image %}
-{% assign image_position = section.settings.image_position %}
+{% assign hotspot_color = section.settings.hotspot_color %}
 {% assign description_title = section.settings.description_title%}
 {% assign description = section.settings.description %}
 {% assign button_link = section.settings.button_link %}
 {% assign button_text = section.settings.button_text %}
 
 <div class="page-width is-sm">
-  <header class="text-center">
+  <header class="text-center" data-scroll="fade-in-up">
     <h2 class="sc-section-title">{{ section_title }}</h2>
   </header>
   <div class="sc-sc-main">
-    <div class="sc-sc-image__container">
+    <!-- left section -->
+    <div class="sc-sc-main__image__container" data-scroll="fade-in-up">
       <!-- main image -->
-      <div class="sc-sc__image">
-        <img class="sc-sc__image"src="{{ main_image | img_url: 'master'}}">
+      <div class="sc-sc__image__container">
+        {% for block in section.blocks %}
+        {% assign position_from_top = block.settings.position_from_top %}
+        {% assign position_from_left = block.settings.position_from_left%}
+        <div class="sc-sc-dot__container" style="top: {{ position_from_top | append: "%"}}; left: {{ position_from_left | append: "%"}}">
+          <button class="sc-sc__dot" style="background-color: {{ hotspot_color }}"></button>
+        </div>
+        {% endfor %}
+        {{ main_image | image_url: width: 2236, height: 2236 | image_tag: class: 'sc-sc__image', sizes: '(min-width: 2000px) 1000px, (min-width: 1445px) calc(100vw / 2), (min-width: 1200px) calc(100vw / 1.75), (min-width: 750px) calc(100vw / 1.25), 100vw' }}
       </div>
       <!-- image description -->
-      <div class="sc-sc-description__container">
-        <h2 class="sc-sc-description__title">{{ description_title }}</h2>
+      <div class="sc-sc-description__container" data-scroll="fade-in-up">
+        <h2 class="sc-sc-description__title">{{ description_title }}</h2> 
         {{ description | newline_to_br}}
         <a href="{{ button_link }}" class="btn">{{ button_text }}</a>
       </div>
     </div>
+    <!-- right section -->
     <div class="sc-sc-outer__products__container">
       <div class="sc-sc-product__container">
         {% for block in section.blocks %}
         {% assign product = block.settings.product%}
         {% assign product_image = product.featured_image %}
+        {% assign product_url = product.url %}
         {% assign product_title = product.title %}
         {% assign product_vendor = product.vendor %}
         {% assign product_price = product.price %}
-        <div class="sc-sc-products">
+        <div class="sc-sc-products" data-scroll="fade-in-up">
           <article class="indiv-product">
-            <a href="" class="grid__image"><img class="sc-sc__image"src="{{ product_image | img_url: 'master'}}"></a>
+            <div href="" class="grid__image">
+              <a href="{{ product_url }}">{{ product_image | image_url: width: 1000, height: 1500 | image_tag: class: 'sc-sc-indiv__image', sizes: '(min-width: 2000px) 1000px, (min-width: 1445px) calc(100vw / 2), (min-width: 1200px) calc(100vw / 1.75), (min-width: 750px) calc(100vw / 1.25), 100vw' }}</a>
+            </div>
             <div class="hp-title">
               <a href="" class="indiv-product__link">
-                <span class="indiv-product-title-text">{{ product_title }}</span>
+                <h4 class="indiv-product-title-text">{{ product_title }}</h4>
                 <span class="indiv-product-vendor"> {{ product_vendor }}</span>
-                <span class="indiv-product-money"> {{ product_price }}</span>
+                <span class="indiv-product-money"> {{ product_price | money }}</span>
               </a>
             </div>
           </article>
@@ -46,8 +58,32 @@
         {% endfor %}
       </div>
     </div>
+    <div class="sc-sc-description__container--mobile" data-scroll="fade-in-up">
+      <h2 class="sc-sc-description__title">{{ description_title }}</h2> 
+      {{ description | newline_to_br}}
+      <div class="sc-sc-button text-center">
+        <a href="{{ button_link }}" class="btn">{{ button_text }}</a>
+      </div>
+    </div>
   </div>
 </div>
+
+{% style%}
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 {{ hotspot_color | hex_to_rgba: 0.95 }};
+    }
+    60% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px {{ hotspot_color | hex_to_rgba: 0}};
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 {{hotspot_color | hex_to_rgba: 0}}
+    }
+  }
+{% endstyle%}
 
 {% schema %}
 {

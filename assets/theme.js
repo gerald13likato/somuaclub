@@ -9685,3 +9685,36 @@ function removeImageLoadingAnimation(image) {
     imageWrapper.removeAttribute('data-image-loading-animation');
   }
 }
+
+/*============================================================================
+  SOMUA CLUB STAFF CHOICE
+==============================================================================*/
+
+// ドットクリックされたら対応する商品以外がfade
+// responsiveの場合、クリックされたドットに対応する商品までスクロール
+
+const dot_class = document.querySelectorAll('.sc-sc__dot');
+
+for (let i = 0; i < dot_class.length; i++) {
+  
+  dot_class[i].addEventListener('click', () => {
+    const dot_index = i;
+    const product_class = document.querySelectorAll('.indiv-product');
+    for (let j = 0; j < product_class.length; j++) {
+      if(dot_index != j) {
+        // 透明度低下
+        product_class[j].classList.add('sc-sc-product_fade');
+      } else if (dot_index == j) {
+        product_class[j].classList.remove('sc-sc-product_fade');
+        
+        const sp_query = window.matchMedia('(max-width: 749px)');
+        if (sp_query.matches) {
+          let scrollToProduct = product_class[j];
+          scrollToProduct.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+      }
+    }
+  })
+}
